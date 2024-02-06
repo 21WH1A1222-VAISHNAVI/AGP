@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glucema</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: #B4E5FA;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .blink {
+                animation: blinker 1.5s linear infinite;
+                color: rgb(0, 34, 97);
+                font-family: sans-serif;
+            }
+            @keyframes blinker {
+                50% {
+                    opacity: 0;
+                }
+            }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3dbedf;
+        padding: 1rem 2rem;
+      }
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+      .nav-links li {
+        margin-right: 20px;
+      }
+      .nav-links a {
+        font-size: 1.5rem; 
+      }
+      .nav-links-container {
+        display: flex;
+        justify-content: center;
+      }
+      
+      
+      a {
+        text-decoration: none;
+        color: black;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: grey;
+      }
+      section {
+        padding: 4vh 10rem;
+        box-sizing: border-box;
+      }
+      
+      
+      #profile {
+        background-image: url("/Users/bhavithasankranthi/Downloads/flask/static/profile.png");
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-color: #B4E5FA;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: rgb(0, 0, 0);
+        max-width: 1450px; 
+        text-align: center; 
+      }
+      #profile .title {
+        font-size: 3rem;
+        margin-top: 1rem;
+      }
+      
+      
+      #about {
+        background-image: url('/Users/bhavithasankranthi/Downloads/flask/templates/profile.png'); 
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-color: #3dbedf;
+        color: rgb(0, 0, 0);
+        height: 100vh;
+      }
+      #about p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+      }
+      #about .title {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+      }
+      
+      
+      #experience {
+        background-image: url('/Users/bhavithasankranthi/Downloads/flask/templates/need.png'); 
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-color: #B4E5FA;
+        color: rgb(0, 0, 0);
+        height: 100vh;
+      
+      }
+      #experience p{
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+      }
+      #experience .title {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+      }
+      
+      
+      #projects {
+        background-image: url('/Users/bhavithasankranthi/Downloads/flask/templates/demo.png'); 
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-color: #3dbedf;
+        color: rgb(0, 0, 0);
+        position: relative;
+        max-width: 1450px; 
+        margin: 0 auto;
+        height: 100vh;
+      }
+      #projects form {
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #projects input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+      }
+      #projects button {
+        background-color: #4CAF50;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 9px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      #projects button:hover {
+        background-color: #45a049;
+      }
+      #projects .title {
+        font-size: 3rem;
+        margin-top: 1rem;
+      }
+      
+      
+      #contact {
+        background-color: #B4E5FA;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding-top: 10px;
+        height: 100vh;
+      
+      }
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+      }
+      .contact-info {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .contact-info img {
+        width: 300px; 
+        height: 300px; 
+        border-radius: 50%; 
+        object-fit: cover; 
+        object-position: center; 
+      }
+      #contact .title {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+        margin-bottom: 6rem; 
+      }
+      
+      footer {
+        background-color: #3dbedf;
+        text-align: center;
+        padding: 1rem;
+      }
+      /* Responsive adjustments for desktop view */
+      @media (max-width: 768px) {
+        section {
+          padding: 4vh 1rem;
+        }
+        
+        nav {
+          padding: 1rem;
+        }
+        
+        #profile {
+          height: auto;
+          padding: 2rem;
+        }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <marquee direction="right" class="blink">BVRIT HYDERABAD College of Engineering for Women</marquee>
+    <nav id="desktop-nav">
+      <div class="logo"><!--name--></div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">AGP</a></li>
+          <li><a href="#projects">Demo</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section id="profile">    
+      <div class="section__text">
+        <h1 class="title">Non Invasive Monitoring of Blood Sugar</h1> 
+        <h1 class="title">Levels using Saliva</h1>
+      </div>
+    </section>
+    
+
+    <section id="about">
+      <h1 class="title">What is AGP?</h1>
+      <div class="about-container">
+        <p>
+          <br>
+          An ambulatory glucose profile (AGP) is a comprehensive report that provides a visual representation 
+          of a person's glucose levels over a period of time,typically spanning 24 hours or several days. It's 
+          generated from continuous glucose monitoring (CGM) data, which tracks glucose levels in real-time 
+          throughout the day and night.The AGP displays various metrics such as average glucose, standard 
+          deviation, time in range, time above range (hyperglycemia), and time below range (hypoglycemia). 
+          It offers a holistic view of glucose patterns, trends, and variability, allowing healthcare providers 
+          and individuals with diabetes to assess glycemic control, identify potential issues, and adjust treatment 
+          plans accordingly.AGPs are valuable tools in diabetes management as they provide deeper insights into glucose 
+          dynamics compared to traditional blood glucose monitoring methods, enabling more personalized and effective diabetes care.
+        </p>
+      </div>
+    </section>
+    
+
+    <section id="experience">
+      <h1 class="title">Need of AGP</h1>
+      <div class="experience-container">
+        <p>
+          <br>
+          Need for AGP
+          <br>
+          Comprehensive Overview
+          <br>
+          Identification of Patterns
+          <br>
+          Quantitative Metrics
+          <br>
+          Personalized Treatment
+          <br>
+          Remote Monitoring
+        </p>
+      </div>
+    </section>
+    
+
+    <section id="projects">
+      <h1 class="title">Demo</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Enter Glucema Test Value:</h1>
+        <form action="/plot" method="post">
+        <input type="text" name="glucema_test" placeholder="Enter Glucema Test">
+        <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="contact">
+      <h1 class="title">Contact us</h1>
+    
+      <div class="contact-container">
+        <div class="contact-info">
+          <img src="ME.jpeg" alt="Email Icon" />
+          <h3><a href="mailto:vaish@example.com">vaish@gmail.com</a></h3>
+          <h4>Phone:+91 8125354461</h4>
+        </div>
+    
+        <div class="contact-info">
+          <img src="ME.jpeg" alt="Phone Icon" />
+          <h3><a href="mailto:sukanya@example.com">sukanya@gmail.com</a></h3>
+          <h4>Phone:+91 9966342351</h4>
+        </div>
+    
+        <div class="contact-info">
+          <img src="ME.jpeg" alt="Location Icon" />
+          <h3><a href="mailto:bhavi@example.com">bhavithasankranthi6@gmail.com</a></h3>
+          <h4>Phone:+91 9392759179</h4>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">AGP</a></li>
+            <li><a href="#projects">Demo</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 GlucemaAGP. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
