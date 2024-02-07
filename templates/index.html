@@ -69,7 +69,7 @@
       
       
       #profile {
-        background-image: url("/Users/bhavithasankranthi/Downloads/flask/static/profile.png");
+        background-image: url("{{url_for('static',filename='main.png')}}");
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat; 
@@ -84,13 +84,13 @@
         text-align: center; 
       }
       #profile .title {
-        font-size: 3rem;
+        font-size: 3.2rem;
         margin-top: 1rem;
       }
       
       
       #about {
-        background-image: url('/Users/bhavithasankranthi/Downloads/flask/templates/profile.png'); 
+        background-image: url("{{url_for('static',filename='profile.png')}}");
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat;
@@ -111,7 +111,7 @@
       
       
       #experience {
-        background-image: url('/Users/bhavithasankranthi/Downloads/flask/templates/need.png'); 
+        background-image: url("{{url_for('static',filename='need.png')}}");
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat;
@@ -133,7 +133,7 @@
       
       
       #projects {
-        background-image: url('/Users/bhavithasankranthi/Downloads/flask/templates/demo.png'); 
+        background-image: url("{{url_for('static',filename='demo.png')}}");
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat;
@@ -255,13 +255,16 @@
         <p>
           <br>
           An ambulatory glucose profile (AGP) is a comprehensive report that provides a visual representation 
-          of a person's glucose levels over a period of time,typically spanning 24 hours or several days. It's 
-          generated from continuous glucose monitoring (CGM) data, which tracks glucose levels in real-time 
-          throughout the day and night.The AGP displays various metrics such as average glucose, standard 
-          deviation, time in range, time above range (hyperglycemia), and time below range (hypoglycemia). 
-          It offers a holistic view of glucose patterns, trends, and variability, allowing healthcare providers 
+          of a person's glucose levels over a period of time,typically spanning 24 hours or several days. 
+          It's generated from continuous glucose monitoring (CGM) data, which tracks glucose levels in real-time 
+          throughout the day and night.
+          <br>
+          The AGP displays various metrics such as average glucose, standard deviation, time in range, time above range (hyperglycemia), and time below range (hypoglycemia). 
+          AGP offers a holistic view of glucose patterns, trends, and variability, allowing healthcare providers 
           and individuals with diabetes to assess glycemic control, identify potential issues, and adjust treatment 
-          plans accordingly.AGPs are valuable tools in diabetes management as they provide deeper insights into glucose 
+          plans accordingly.
+          <br>
+          AGPs are valuable tools in diabetes management as they provide deeper insights into glucose 
           dynamics compared to traditional blood glucose monitoring methods, enabling more personalized and effective diabetes care.
         </p>
       </div>
@@ -272,8 +275,6 @@
       <h1 class="title">Need of AGP</h1>
       <div class="experience-container">
         <p>
-          <br>
-          Need for AGP
           <br>
           Comprehensive Overview
           <br>
@@ -309,19 +310,20 @@
     
       <div class="contact-container">
         <div class="contact-info">
-          <img src="ME.jpeg" alt="Email Icon" />
-          <h3><a href="mailto:vaish@example.com">vaish@gmail.com</a></h3>
+          <img src="{{ url_for('static', filename='vy.jpeg') }}" alt="Email Icon" />
+          <h3><a href="mailto:vaishnavi.sheri@gmail.com">vaishnavi.sheri@gmail.com</a></h3>
           <h4>Phone:+91 8125354461</h4>
         </div>
+
     
         <div class="contact-info">
-          <img src="ME.jpeg" alt="Phone Icon" />
-          <h3><a href="mailto:sukanya@example.com">sukanya@gmail.com</a></h3>
+          <img src="{{ url_for('static', filename='sukanya.jpeg') }}" alt="Email Icon" />
+          <h3><a href="mailto:anjanisukanya1204@example.com">anjanisukanya1204@gmail.com</a></h3>
           <h4>Phone:+91 9966342351</h4>
         </div>
     
         <div class="contact-info">
-          <img src="ME.jpeg" alt="Location Icon" />
+          <img src="{{ url_for('static', filename='me.jpeg') }}" alt="Email Icon" />
           <h3><a href="mailto:bhavi@example.com">bhavithasankranthi6@gmail.com</a></h3>
           <h4>Phone:+91 9392759179</h4>
         </div>
