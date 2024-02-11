@@ -72,7 +72,18 @@ def plot():
         # Close the plot to prevent memory leaks
         plt.close(fig)
 
-        return render_template('plot.html', img_data=img_data)
+        # Calculate percentages
+        total = selected_data.sum(axis=1).values[0]
+        high_percentage = (selected_data['TBR1'].values[0] / total) * 100
+        very_high_percentage = (selected_data['TBR2'].values[0] / total) * 100
+        target_percentage = (selected_data['TIR'].values[0] / total) * 100
+        low_percentage = (selected_data['TAR1'].values[0] / total) * 100
+        very_low_percentage = (selected_data['TAR2'].values[0] / total) * 100
+
+        # Pass the percentages to the template
+        return render_template('plot.html', img_data=img_data, high_percentage=high_percentage,
+                               very_high_percentage=very_high_percentage, target_percentage=target_percentage,
+                               low_percentage=low_percentage, very_low_percentage=very_low_percentage)
 
 if __name__ == '__main__':
     app.run(debug=True)
