@@ -292,19 +292,40 @@
 
     <section id="projects">
       <h1 class="title">Demo</h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h1>Enter Glucema Test Value:</h1>
-        <form action="/plot" method="post">
-        <input type="text" name="glucema_test" placeholder="Enter Glucema Test">
+      <form action="/plot" method="post">
+        <div class="input-group">
+          <h1>Id:</h1>
+          <input type="text" name="patient_id" placeholder="Patient ID">
+        </div>
+        <div class="input-group">
+          <h1>Name:</h1>
+          <input type="text" name="name" placeholder="Name">
+        </div>
+        <div class="input-group">
+          <h1>Age:</h1>
+          <input type="number" name="age" placeholder="Age">
+        </div>
+        <div class="input-group">
+          <h1>Gender:</h1>
+          <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <h1>Enter Glucema Test Value:</h1>
+          <input type="text" name="glucema_test" placeholder="Enter Glucema Test">
+        </div>
         <button type="submit">Submit</button>
-        </form>
+      </form>
     </section>
+    
+    
 
+
+    
+    
     <section id="contact">
       <h1 class="title">Contact us</h1>
     
