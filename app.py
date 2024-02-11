@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')  # Set the backend to Agg
@@ -84,6 +84,13 @@ def plot():
         return render_template('plot.html', img_data=img_data, high_percentage=high_percentage,
                                very_high_percentage=very_high_percentage, target_percentage=target_percentage,
                                low_percentage=low_percentage, very_low_percentage=very_low_percentage)
+
+@app.route('/submit-remarks', methods=['POST'])
+def submit_remarks():
+    doctor_remarks = request.form['doctor-remarks']
+    # Process the doctor remarks here if needed
+    # Redirect to index route
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
