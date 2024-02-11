@@ -118,8 +118,11 @@
         </div>
     </div>
     <div class="remarks-container">
-        <label for="doctor-remarks">Doctor Remarks:</label>
-        <textarea id="doctor-remarks" name="doctor-remarks" rows="4" cols="50" placeholder="Enter doctor remarks here..."></textarea>
+        <form action="/submit-remarks" method="post"> <!-- Redirect to submit-remarks route -->
+            <label for="doctor-remarks">Doctor Remarks:</label>
+            <textarea id="doctor-remarks" name="doctor-remarks" rows="4" cols="50" placeholder="Enter doctor remarks here..."></textarea>
+            <button type="submit">Submit</button> <!-- Submit button -->
+        </form>
     </div>
     
 
