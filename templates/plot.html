@@ -77,11 +77,18 @@
             background-color: brown; /* Color for "Very High" */
         }
 
+        .dates-container {
+            margin-bottom: 0px;
+        }
+
     </style>
 </head>
 <body>
     <div class="main-title">
         <h1> Ambulatory Glucose Profile </h1> 
+    </div>
+    <div class="dates-container">
+        <h2>7 Days: <span id="date-range"></span></h2>
     </div>
     <div class="container">
         <div class="text-container">
@@ -91,22 +98,55 @@
                 High +
                 <span class="color-box very-high-color"></span>
                 Very High - &lt;25%
-            </p>
-            <p> 
+                <br>
                 <span class="color-box target-color"></span>
                 Target - &gt;=70% 
-            </p>
-            <p> 
+                <br>
                 <span class="color-box low-color"></span>
                 Very low +
                 <span class="color-box very-low-color"></span>
                 low - &lt;4% 
             </p>
-            
+        </div>
+        <div class="percentage-container">
+            <p>High + Very High: {{ (low_percentage + very_low_percentage)|round(2) }}%</p>
+            <p>Target: {{ target_percentage|round(2) }}%</p>
+            <p>Very low + low: {{ high_percentage|round(2) }}%</p>
         </div>
         <div class="plot-container">
             <img class="plot" src="data:image/png;base64,{{ img_data }}" alt="AGP Plot">
         </div>
     </div>
+    <div class="remarks-container">
+        <label for="doctor-remarks">Doctor Remarks:</label>
+        <textarea id="doctor-remarks" name="doctor-remarks" rows="4" cols="50" placeholder="Enter doctor remarks here..."></textarea>
+    </div>
+    
+
+    <script>
+        // Get the current date
+        var currentDate = new Date();
+
+        // Calculate the date range for the past 7 days
+        var sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(currentDate.getDate() - 6); // Subtract 6 days to get 7-day range
+
+        // Format the dates
+        var formattedCurrentDate = formatDate(currentDate);
+        var formattedSevenDaysAgo = formatDate(sevenDaysAgo);
+
+        // Display the date range
+        document.getElementById("date-range").textContent = formattedSevenDaysAgo + " - " + formattedCurrentDate + ", " + currentDate.getFullYear();
+
+        // Function to format the date
+        function formatDate(date) {
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var month = months[date.getMonth()];
+            var day = date.getDate();
+            return month + " " + day;
+        }
+    </script>
+
+
 </body>
 </html>
