@@ -37,8 +37,19 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end; /* Align items to the right */
+            position: relative; /* Ensure the container is a positioned parent */
         }
-        
+
+        .custom-line {
+            position: absolute; /* Positioning relative to the container */
+            top: 50%; /* Adjust this value to change the vertical position */
+            left: 0; /* Position the line next to the plot container */
+            width: 100%; /* Make the line span the full width of the plot container */
+            height: 1px; /* Adjust this value to change the thickness of the line */
+            border: none;
+            background-color: black; /* Change color as desired */
+        }
+
         .container {
             display: flex;
             align-items: center;
@@ -79,8 +90,8 @@
 
         .dates-container {
             margin-bottom: 0px;
+            
         }
-
     </style>
 </head>
 <body>
@@ -98,33 +109,23 @@
                 High +
                 <span class="color-box very-high-color"></span>
                 Very High - &lt;25%
-                <br>
+            </p>
+            <p> 
                 <span class="color-box target-color"></span>
                 Target - &gt;=70% 
-                <br>
+            </p>
+            <p> 
                 <span class="color-box low-color"></span>
                 Very low +
                 <span class="color-box very-low-color"></span>
                 low - &lt;4% 
             </p>
         </div>
-        <div class="percentage-container">
-            <p>High + Very High: {{ (low_percentage + very_low_percentage)|round(2) }}%</p>
-            <p>Target: {{ target_percentage|round(2) }}%</p>
-            <p>Very low + low: {{ high_percentage|round(2) }}%</p>
-        </div>
         <div class="plot-container">
             <img class="plot" src="data:image/png;base64,{{ img_data }}" alt="AGP Plot">
+            <hr class="custom-line">
         </div>
     </div>
-    <div class="remarks-container">
-        <form action="/submit-remarks" method="post"> <!-- Redirect to submit-remarks route -->
-            <label for="doctor-remarks">Doctor Remarks:</label>
-            <textarea id="doctor-remarks" name="doctor-remarks" rows="4" cols="50" placeholder="Enter doctor remarks here..."></textarea>
-            <button type="submit">Submit</button> <!-- Submit button -->
-        </form>
-    </div>
-    
 
     <script>
         // Get the current date
@@ -149,7 +150,5 @@
             return month + " " + day;
         }
     </script>
-
-
 </body>
 </html>
