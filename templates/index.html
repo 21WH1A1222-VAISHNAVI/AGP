@@ -21,30 +21,46 @@
       }
       
       .blink {
-                animation: blinker 1.5s linear infinite;
-                color: rgb(0, 34, 97);
-                font-family: sans-serif;
-            }
-            @keyframes blinker {
-                50% {
-                    opacity: 0;
-                }
-            }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #B4E5FA; /* Match with body background color */
+        z-index: 1001; /* Ensure it's above the navigation bar */
+        animation: blinker 1.5s linear infinite;
+        color: rgb(0, 34, 97);
+        font-family: sans-serif;
+        }
+
+        @keyframes blinker {
+          50% {
+            opacity: 0;
+        }
+      }
+
 
       nav {
+        position : fixed;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: #3dbedf;
-        padding: 1rem 2rem;
+        padding: 1rem 5rem;
+        top: 0px;
+        left: 10;
+        width: 100%;
+        z-index: 1000;
       }
       .nav-links {
         list-style: none;
         display: flex;
+        justify-content: flex-end; /* Align nav links to the right */
       }
+
       .nav-links li {
-        margin-right: 20px;
+        margin-left: 20px; /* Add margin to space out the links */
       }
+
       .nav-links a {
         font-size: 1.5rem; 
       }
@@ -111,7 +127,7 @@
       
       
       #experience {
-        background-image: url("{{url_for('static',filename='need.png')}}");
+        background-image: url("{{url_for('static',filename='need.jpeg')}}");
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat;
@@ -172,6 +188,51 @@
         margin-top: 1rem;
       }
       
+      .timeline {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        display: flex;
+        margin-bottom: 20px;
+        width:45%;
+      }
+
+      .left {
+        justify-content: flex-end;
+      }
+
+      .right {
+        justify-content: flex-start;
+      }
+
+      .content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 6px;
+        max-width: 100%;
+      }
+
+      .container.left .content::after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 3px 3px 3px 0;
+        border-color: transparent white transparent transparent;
+        right: 100%;
+        top: 5px;
+      }
+
+      .container.right .content::after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 15px 0 15px 15px;
+        border-color: transparent transparent transparent white;
+        left: 70%;
+        top: 15px;
+      }
       
       #contact {
         background-color: #B4E5FA;
@@ -225,11 +286,13 @@
           padding: 2rem;
         }
         
+        
+        
       }
     </style>
+    
   </head>
   <body>
-    <marquee direction="right" class="blink">BVRIT HYDERABAD College of Engineering for Women</marquee>
     <nav id="desktop-nav">
       <div class="logo"><!--name--></div>
       <div>
@@ -272,21 +335,42 @@
     
 
     <section id="experience">
+      <br>
+      <br>
+      <br>
+      <br>
+
       <h1 class="title">Need of AGP</h1>
-      <div class="experience-container">
-        <p>
-          <br>
-          Comprehensive Overview
-          <br>
-          Identification of Patterns
-          <br>
-          Quantitative Metrics
-          <br>
-          Personalized Treatment
-          <br>
-          Remote Monitoring
-        </p>
+      <br>
+      <br>
+      <div class="timeline">
+        <div class="container left">
+          <div class="content">
+            <h2>Comprehensive Overview</h2>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <h2>Identification of Patterns</h2>
+          </div>
+        </div>
+        <div class="container left">
+          <div class="content">
+            <h2>Quantitative Metrics</h2>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <h2>Personalized Treatment</h2>
+          </div>
+        </div>
+        <div class="container left">
+          <div class="content">
+            <h2>Remote Monitoring</h2>
+          </div>
+        </div>
       </div>
+      
     </section>
     
 
@@ -320,10 +404,6 @@
         <button type="submit">Submit</button>
       </form>
     </section>
-    
-    
-
-
     
     
     <section id="contact">
